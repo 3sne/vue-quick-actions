@@ -1,0 +1,38 @@
+{
+  "name": "vue-quick-actions",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name vue-quick-actions --report --formats umd-min src/index.js"
+  },
+  "author": {
+    "name": "Mukur Panchani",
+    "email": "panchanimukur@gmail.com",
+    "url": "https://github.com/3sne"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3sne/vue-quick-actions"
+  },
+
+  "main": "./src/index.js",
+  "dependencies": {
+    "@aws-amplify/core": "3.3.2",
+    "core-js": "^3.6.5",
+    "v-hotkey": "0.8.0",
+    "vue": "2.6.11",
+    "vuetify": "2.2.32"
+  },
+  "devDependencies": {
+    "@vue/cli": "^4.4.4",
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-service": "^4.4.4",
+    "sass": "^1.26.8",
+    "sass-loader": "^8.0.2",
+    "vue-cli-plugin-vuetify": "~2.0.5"
+  },
+  "engines": {
+    "node": ">=12.12.0"
+  },
+  "type": "module"
+}
