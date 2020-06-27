@@ -17,7 +17,6 @@
 
   "main": "./src/index.js",
   "dependencies": {
-    "@aws-amplify/core": "3.3.2",
     "core-js": "^3.6.5",
     "v-hotkey": "0.8.0",
     "vue": "2.6.11",

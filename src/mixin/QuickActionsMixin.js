@@ -1,10 +1,3 @@
-import { Logger } from '@aws-amplify/core';
-
-const logger = new Logger(
-  'QuickActionsMixin',
-  'INFO'
-);
-
 export default {
   created: function () {
     if (this.$data?.quickActions) {
@@ -13,10 +6,10 @@ export default {
         throw new TypeError(`Quick Actions may not be setup correctly. Expected Array<Object>, got ${typeof quickActions} instead.`);
       }
       if (quickActions?.length <= 0) {
-        logger.warn('No Quick Actions were passed!');
+        console.warn('No Quick Actions were passed!');
         return;
       }
-      logger.info(`${quickActions.length} Quick Actions detected. Registering...`);
+      console.info(`${quickActions.length} Quick Actions detected. Registering...`);
       quickActions?.forEach((action) => {
         Vue.prototype.$quickAction?.registerAction(action);
       });
@@ -24,7 +17,7 @@ export default {
   },
   destroyed: function () {
     if (this.$data?.quickActions) {
-      logger.info('Component destroyed. Deregistering Quick Actions, if any...');
+      console.info('Component destroyed. Deregistering Quick Actions, if any...');
       this.$data?.quickActions?.forEach?.((action) => {
         Vue.prototype.$quickAction?.deregisterAction(action?.actionId);
       });

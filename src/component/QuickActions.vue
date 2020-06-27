@@ -68,11 +68,6 @@
 </template>
 
 <script>
-import { Logger } from '@aws-amplify/core';
-const logger = new Logger(
-  'QuickActions',
-  'INFO'
-);
 const Keys = {
   ArrowUp: 38,
   ArrowDown: 40,
@@ -121,14 +116,14 @@ export default {
   watch: {
     '$route.name': {
       handler (routeName) {
-        logger.log(`Route changed to ${routeName}, updating view`);
+        console.log(`Route changed to ${routeName}, updating view`);
         this.loadQuickActions(routeName);
       },
       deep: true
     },
     '$quickAction.list': {
       handler (newList) {
-        logger.log('New action(s) registered, updating view');
+        console.log('New action(s) registered, updating view');
         this.loadQuickActions(this.$route.name);
       },
       deep: true
@@ -205,12 +200,12 @@ export default {
           });
         });
       } catch (error) {
-        logger.error(error);
+        console.error(error);
       }
     },
     loadQuickActions (routeName) {
       try {
-        logger.info(`Filtering actions for route \"${routeName}\"`);
+        console.info(`Filtering actions for route \"${routeName}\"`);
         const quickActionList = this.$quickAction.getActionList();
         this.quickActionList = quickActionList
           .filter((quickAction) => quickAction.routeNameList?.includes(routeName) ?? true)
@@ -220,7 +215,7 @@ export default {
             displayText: `${action.groupName}: ${action.name}`
           }));
       } catch (error) {
-        logger.error(error);
+        console.error(error);
         this.quickActionList = [];
       }
     },
